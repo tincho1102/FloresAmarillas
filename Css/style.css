@@ -9,27 +9,44 @@ h1 {
     font-size: 100px;
 }
 
+/* Reglas para pantallas de hasta 768px de ancho (móviles y tablets pequeñas) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 50px;
+    }
+}
+
 .Con-2 {
     display: none;
 }
 
 canvas {
     display: block;
+    width: 100%; /* El canvas ocupará el 100% del ancho del contenedor */
+    height: auto; /* La altura se ajustará automáticamente */
+    max-width: 800px; /* Limita el ancho máximo para pantallas grandes */
 }
 
 .Contenedor {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Cambié 'height' por 'min-height' para evitar recortes */
     margin: 0;
+    flex-direction: column; /* Apila el canvas y el texto verticalmente en móviles */
 }
-
+/* Agrega un poco de margen inferior en dispositivos móviles */
+@media (max-width: 768px) {
+    .Contenedor {
+        padding-bottom: 20px;
+    }
+}
 .Con {
     display: flex;
-    place-content: center;
+    justify-content: center; /* Centra los elementos */
     align-items: center;
     margin-top: 15px;
+    flex-wrap: wrap; /* Permite que los botones salten de línea si no caben */
 }
 
 .Texto {
@@ -38,12 +55,29 @@ canvas {
 
 .Texto h2 {
     font-size: 50px;
+    text-align: center; /* Centra el texto */
+    padding: 0 10px; /* Agrega un poco de espacio a los lados */
+}
+
+@media (max-width: 768px) {
+    .Texto h2 {
+        font-size: 20px;
+    }
 }
 
 #B12 {
     margin-left: 30px;
 }
+@media (max-width: 468px) {
+    .Con {
+        flex-direction: column; /* Apila los botones verticalmente */
+    }
 
+    #B12 {
+        margin-left: 0;
+        margin-top: 15px; /* Agrega espacio entre los botones */
+    }
+}
 .Button{
     font-family: monospace;
     font-size: x-large;
